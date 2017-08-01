@@ -45,4 +45,5 @@ public class Crime {
     public void setSolved(Boolean solved) {
         mSolved = solved;
     }
+
 }
