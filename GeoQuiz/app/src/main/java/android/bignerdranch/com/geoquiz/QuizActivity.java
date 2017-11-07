@@ -1,21 +1,14 @@
 package android.bignerdranch.com.geoquiz;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.StringBuilderPrinter;
-import android.view.Gravity;
 import android.view.View;
-import android.view.animation.Interpolator;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -27,13 +20,11 @@ public class QuizActivity extends AppCompatActivity {
 
     private Button mTrueButton;
     private Button mFalseButton;
-    private Button mNextButton;
-    private Button mCheatButton;
 
 
     private TextView mQuestionTextView;
 
-    private Question[] mQuestionBank = new Question[] {
+    private final Question[] mQuestionBank = new Question[] {
         new Question(R.string.question_australia, true),
         new Question(R.string.question_oceans, true),
         new Question(R.string.question_mideast, false),
@@ -86,8 +77,8 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-        mNextButton = (Button) findViewById(R.id.next_button);
-        mNextButton.setOnClickListener(new View.OnClickListener() {
+        Button nextButton = (Button) findViewById(R.id.next_button);
+        nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
@@ -106,8 +97,8 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-        mCheatButton = (Button) findViewById(R.id.cheat_button);
-        mCheatButton.setOnClickListener(new View.OnClickListener(){
+        Button cheatButton = (Button) findViewById(R.id.cheat_button);
+        cheatButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 // Start CheatActivity
